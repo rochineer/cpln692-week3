@@ -13,8 +13,8 @@
 
     <!--javascript imports-->
     <script src="leaflet.js"></script>
-    <script src="part4-data-clean.js"></script>
-    <script src="part4-data-dirty.js"></script>
+    <script src="part3-data-clean.js"></script>
+    <script src="part3-data-dirty.js"></script>
 
     <script>
 
@@ -65,19 +65,15 @@
 
     var data = bikeArrayClean;
 
-    /* =====================
+    var dataFiltered = [];
 
-    Start code to filter data
+    for(i = 0; i < bikeArrayClean.length; i++) {
+        if (bikeArrayClean[i][3] > 20) {
+            dataFiltered.push(bikeArrayClean[i])
+          }
+        }
 
-    ===================== */
 
-
-
-    /* =====================
-
-    End code to filter data
-
-    ===================== */
 
     var map = L.map('map', {
       center: [39.9522, -75.1639],
@@ -92,19 +88,9 @@
       ext: 'png'
     }).addTo(map);
 
-    /* =====================
-
-    Start code to add markers to map
-
-    ===================== */
-
-
-
-    /* =====================
-
-    End code to add markers to map
-
-    ===================== */
+    for(var j = 1; j < dataFiltered.length; j++) {
+        L.marker([dataFiltered[j][1],dataFiltered[j][0]]).addTo(map)
+    }
 
     </script>
   </body>

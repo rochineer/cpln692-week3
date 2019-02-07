@@ -75,9 +75,15 @@
 
     ===================== */
 
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
+    var pointR = [[39.951051, -75.174844], [40.066392, -75.125343], [39.948626, -75.153628]]
+
+    var addMarker = (pt) => {
+      for (i = 0; i < pt.length; i++) {
+      L.marker([pt[i][0], pt[i][1]]).addTo(map);
+    }
+  }
+
+    addMarker(pointR)
 
     /* =====================
 
